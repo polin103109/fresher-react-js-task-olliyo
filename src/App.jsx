@@ -1,4 +1,4 @@
-
+import DragAndDropElements from './components/DragAndDropElements';
 function App() {
  
 
@@ -6,7 +6,7 @@ function App() {
     <>
       <h1>Gallery project</h1>
       <div>headline</div>
-      <div>gallery grid</div>
+      <DragAndDropElements />
       
     </>
   )
