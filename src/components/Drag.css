@@ -21,9 +21,7 @@ section{
     padding-top: 0.5rem;
 
   }
-  input{
-    display: none;
-  }
+  
   img{
     margin:0;
     padding: 0;
@@ -35,3 +33,9 @@ section{
     align-items: center;
     justify-content: center;
   }
+  .hidden {
+    
+   display:none;
+    
+  }
+  

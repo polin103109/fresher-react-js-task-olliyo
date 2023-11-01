@@ -25,10 +25,13 @@ const galleryText = clickedCount > 0 ? `${clickedCount} Files Selected` : 'Galle
                 {selectedImages && selectedImages.map((image,index)=> {
                     return (
                         <div key={index} className='image'>
+                        <input type='checkbox' onChange={() => handleClick(index)} />
                         <img src={image} height="200"/>
                        
-                        <button onClick={() => handleClick(index)}>click here</button>
+                      
+                      
                              <p>{index+1}</p>
+                           
                           
                         </div>
                        
@@ -41,7 +44,7 @@ const galleryText = clickedCount > 0 ? `${clickedCount} Files Selected` : 'Galle
                 Add Images
                 <br/>
                 <span>upto 10 images</span>
-                <input type='file' name='images' onChange={onSelectfile} 
+                <input className='custom-input hidden' type='file'  name='images' onChange={onSelectfile} 
                 multiple accept="image/png, image/jpeg, image/webp"/>
             </label>
         </section>

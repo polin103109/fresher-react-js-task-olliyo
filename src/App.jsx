@@ -4,9 +4,8 @@ function App() {
 
   return (
     <>
-      <h1>Gallery project</h1>
-      <div>headline</div>
-      <DragAndDropElements />
+     
+    <DragAndDropElements />
       
     </>
   )
