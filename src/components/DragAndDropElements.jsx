@@ -62,7 +62,7 @@ function App() {
       )}
 
       {clickedCount > 0 && (
-        <button className="btn btn-danger" onClick={handleDelete}>
+        <button className="btn" onClick={handleDelete}>
           Delete {clickedCount === 1 ? "File" : "Files"}
         </button>
       )}
@@ -70,13 +70,14 @@ function App() {
         {selectedImages &&
           selectedImages.map((image, index) => {
             return (
-              <div key={index} className="image">
+              <div key={index} className="imagediv">
                 <input
+                  className="checkboxinput"
                   type="checkbox"
                   checked={isChecked[index]}
                   onChange={() => handleClick(index)}
                 />
-                <img src={image} height="200" />
+                <img src={image}  />
               </div>
             );
           })}

@@ -9,7 +9,7 @@ section{
     justify-content: center;
     align-items: center;
     border:1px dotted black;
-    border-radius: 20px;
+    border-radius: 10px;
     width:10rem;
     height:10rem;
     cursor:pointer;
@@ -22,13 +22,27 @@ section{
 
   }
   
-  img{
-    margin:0;
+  img {
+    margin: 0;
     padding: 0;
-  }
+    width:10rem;
+    height:10rem;
+    border-radius: 10px;
+    border: 1px solid grey;
+   
+   
+}
+.checkboxinput{
+  position: absolute;
+  margin-top:10px;
+  margin-left:10px;
+}
+
+
   .images{
     display:flex;
     flex-direction: row;
+    gap:10px;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -38,4 +52,13 @@ section{
    display:none;
     
   }
+  .btn {
+    color:red;
+    border: none;
+  }
+  image{
+    position: relative;
+   
+  }
+  
   
