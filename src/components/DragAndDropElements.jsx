@@ -11,7 +11,7 @@ function App()
     const imagesarray = selectedFilesarray.map((file) => {
         return URL.createObjectURL(file);
     });
-    setSelectedimages(imagesarray);
+    setSelectedimages((previousImages)=> previousImages.concat(imagesarray));
     }
     return (
         <section>
@@ -21,10 +21,14 @@ function App()
                     return (
                         <div key={index} className='image'>
                         <img src={image} height="200"/>
+                       
                         <button onClick={
                             ()=> setSelectedimages(selectedImages.filter((e) => e!== image))
                             }>delete</button>
+                             <p>{index+1}</p>
+                          
                         </div>
+                       
                        
                     )
                 })}
