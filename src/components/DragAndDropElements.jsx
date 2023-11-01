@@ -29,12 +29,28 @@ const handleClick = (index) => {
     setClickedCount(newClickedCount);
     
 }
+const handleDelete = () =>
+{
+   
+   const updatedSelectedImages = selectedImages.filter((_, index) => !isChecked[index]);
+   const updatedIsChecked = isChecked.filter((_, index) => !isChecked[index]);
+
+   // Updating the selectedImages and isChecked states
+   setSelectedimages(updatedSelectedImages);
+   setisChecked(updatedIsChecked);
+
+   // Reset the clickedCount
+   setClickedCount(0);
+}
 const galleryText = clickedCount > 0 ? (clickedCount === 1 ? '1 File Selected' : `${clickedCount} Files Selected`) : 'Gallery';
 
     return (
         <section>
              
               <h1>{galleryText}</h1>
+              {clickedCount > 0 && (
+                <button className="btn btn-danger" onClick={handleDelete}>Delete {clickedCount === 1 ? 'File' : 'Files'}</button>
+            )}
             <div className="images">
                 {selectedImages && selectedImages.map((image,index)=> {
                     return (
