@@ -1,10 +1,9 @@
 
 import { useState } from 'react';
 import './Drag.css';
-function App()
-
-{
+function App(){
     const [selectedImages,setSelectedimages] = useState([]);
+    const [clickedCount, setClickedCount] = useState(0);
     const onSelectfile = (event) =>{
     const selectedfiles = event.target.files;
     const selectedFilesarray = Array.from(selectedfiles);
@@ -12,27 +11,32 @@ function App()
         return URL.createObjectURL(file);
     });
     setSelectedimages((previousImages)=> previousImages.concat(imagesarray));
-    }
+
+}
+const handleClick = (index) => {
+    setClickedCount(clickedCount + 1);
+}
+const galleryText = clickedCount > 0 ? `${clickedCount} Files Selected` : 'Gallery';
     return (
         <section>
-           
+             
+              <h1>{galleryText}</h1>
             <div className="images">
                 {selectedImages && selectedImages.map((image,index)=> {
                     return (
                         <div key={index} className='image'>
                         <img src={image} height="200"/>
                        
-                        <button onClick={
-                            ()=> setSelectedimages(selectedImages.filter((e) => e!== image))
-                            }>delete</button>
+                        <button onClick={() => handleClick(index)}>click here</button>
                              <p>{index+1}</p>
                           
                         </div>
                        
-                       
+                    
                     )
                 })}
             </div>
+           
             <label >
                 Add Images
                 <br/>
