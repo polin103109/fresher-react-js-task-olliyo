@@ -1,0 +1,26 @@
+section{
+    
+    padding: 2rem 0;
+  }
+  label{
+    margin:0 auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:1px dotted black;
+    border-radius: 20px;
+    width:10rem;
+    height:10rem;
+    cursor:pointer;
+    font-size: large;
+  }
+  label span{
+    font-weight: lighter;
+    font-size:small;
+    padding-top: 0.5rem;
+
+  }
+  input{
+    display: none;
+  }
