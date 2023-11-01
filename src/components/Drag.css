@@ -24,3 +24,14 @@ section{
   input{
     display: none;
   }
+  img{
+    margin:0;
+    padding: 0;
+  }
+  .images{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }

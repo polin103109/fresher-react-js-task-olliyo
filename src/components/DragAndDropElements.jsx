@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import { useState } from 'react';
 import './Drag.css';
 function App()
 
@@ -14,23 +15,27 @@ function App()
     }
     return (
         <section>
-            <label >
-                Add images
-                <br/>
-                <span>upto 10 images</span>
-                <input type='file' name='images' onChange={onSelectfile} 
-                multiple accept="image/png, image/jpeg, image/webp"/>
-            </label>
+           
             <div className="images">
                 {selectedImages && selectedImages.map((image,index)=> {
                     return (
                         <div key={index} className='image'>
                         <img src={image} height="200"/>
+                        <button onClick={
+                            ()=> setSelectedimages(selectedImages.filter((e) => e!== image))
+                            }>delete</button>
                         </div>
                        
                     )
                 })}
             </div>
+            <label >
+                Add Images
+                <br/>
+                <span>upto 10 images</span>
+                <input type='file' name='images' onChange={onSelectfile} 
+                multiple accept="image/png, image/jpeg, image/webp"/>
+            </label>
         </section>
   
     );
