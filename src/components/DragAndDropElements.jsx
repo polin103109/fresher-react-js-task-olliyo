@@ -108,11 +108,11 @@ function App() {
                 <input
                   className="checkboxinput"
                   type="checkbox"
-                checked={isChecked[index]}
+                  checked={isChecked[index]}
                   onChange={() => handleClick(index)}
                 />
                  </div>
-                <img src={image}  />
+                <img src={image} alt={`Image ${index}`} />
                
               </div>
             );
