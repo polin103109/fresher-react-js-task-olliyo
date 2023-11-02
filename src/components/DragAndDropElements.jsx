@@ -1,4 +1,4 @@
-import { useState,useRef } from "react";
+import { useState,useRef,useEffect} from "react";
 
 import "./Drag.css";
 function App() {
@@ -6,6 +6,7 @@ function App() {
   const [firstItem, setFirstItem] = useState(selectedImages[0]);
   const [clickedCount, setClickedCount] = useState(0);
   const [isChecked, setisChecked] = useState([]);
+
   const dragItem = useRef(null);
   const dragOverItem = useRef(null);
   
@@ -57,8 +58,15 @@ function App() {
     
     setSelectedimages(_Selectedimages);
   };
+  useEffect(() => {
+    // Update the firstItem when fruitsitems changes
+    setFirstItem(selectedImages[0]);
+    console.log(selectedImages[0]);
+  }, [selectedImages]);
   return (
     <section>
+      <div className="img-gallery">
+        <div className="gallery-top">
       {clickedCount > 0 ? (
         <div className="checkbox-container">
           <input
@@ -81,12 +89,14 @@ function App() {
           Delete {clickedCount === 1 ? "File" : "Files"}
         </button>
       )}
+      </div>
+      <div className="gallery-body">
       <div className="images">
         {selectedImages &&
           selectedImages.map((image, index) => {
             return (
               <div key={index}
-              className={`imagediv ${image === firstItem ? 'first-item' : ''}`}
+              className= "imagediv"
               draggable
               onDragStart={() => {dragItem.current = index}}
           onDragEnter={() => (dragOverItem.current = index)}
@@ -94,18 +104,22 @@ function App() {
           onDragOver={(e) => e.preventDefault()}
               
               >
+                <div className="overlay">
                 <input
                   className="checkboxinput"
                   type="checkbox"
                 checked={isChecked[index]}
                   onChange={() => handleClick(index)}
                 />
+                 </div>
                 <img src={image}  />
+               
               </div>
             );
           })}
-      </div>
+      
 
+<div className="upload-image">
       <label>
         Add Images
         <br />
@@ -119,7 +133,10 @@ function App() {
           accept="image/png, image/jpeg, image/webp"
         />
       </label>
-   
+      </div>
+      </div>
+      </div>
+      </div>
     </section>
    
   );

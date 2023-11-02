@@ -2,6 +2,26 @@ section{
     
     padding: 2rem 0;
   }
+  .img-gallery {
+    width: 70vw;
+    min-height: 80vh;
+    border: 1px solid rgb(236, 236, 236);
+    margin: 100px;
+    box-shadow: 0px 2px 8px 0px rgba(217, 218, 218, 0.75);
+    -webkit-box-shadow: 0px 2px 8px 0px rgba(200, 198, 198, 0.75);
+    -moz-box-shadow: 0px 2px 8px 0px rgba(213, 213, 213, 0.75);
+}
+.gallery-top {
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  border-bottom: 1px solid rgb(186, 186, 186);
+}
+.gallery-body{
+  background-color: #fff;
+}
   label{
     margin:0 auto;
     display:flex;
@@ -22,16 +42,7 @@ section{
 
   }
   
-  img {
-    margin: 0;
-    padding: 0;
-    width:10rem;
-    height:10rem;
-    border-radius: 10px;
-    border: 1px solid grey;
-   
-   
-}
+  
 .checkboxinput{
   position: absolute;
   margin-top:10px;
@@ -39,14 +50,64 @@ section{
 }
 
 
-  .images{
-    display:flex;
-    flex-direction: row;
-    gap:10px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
+ 
+  .images {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 25px;
+    border-radius: 5px;
+}
+.imagediv {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #e0dfdf;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+img {
+  width: 100%;
+  
+}
+
+
+.imagediv img {
+  object-fit: cover;
+}
+.imagediv:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.imagediv:first-child img {
+  grid-column: span 2;
+  grid-row: span 2;
+
+}
+.overlay input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+.upload-image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.imagediv:hover .overlay{
+  display: block;
+  top: 0;
+  left: 0;
+  background-color: #00000056;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
   .hidden {
     
    display:none;
@@ -60,5 +121,11 @@ section{
     position: relative;
    
   }
+  @media screen and (max-width: 760px) {
+    .images {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+ 
   
   
