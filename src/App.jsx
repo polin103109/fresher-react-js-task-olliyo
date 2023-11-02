@@ -1,12 +1,11 @@
-import DragAndDropElements from './components/DragAndDropElements';
+import Drag from "./components/DragAndDropElements"
+
 function App() {
  
-
-  return (
+ return (
     <>
-     
-    <DragAndDropElements />
-      
+    <Drag/>
+
     </>
   )
 }

@@ -1,0 +1,29 @@
+.list-items{
+    
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    align-items: center;
+    margin-top: 15px;
+    background-color:pink;
+    cursor:pointer;
+}
+.list-container{
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust the minmax value as needed */
+    gap: 10px; /* Adjust the gap as needed */
+    align-items: center;
+    justify-content: center;
+    margin-left: 200px;
+    width: 1000px;
+    background-color: blue;
+}
+.list-items.first-item {
+    width: 400px; /* Twice the width of other items */
+    height: 200px; /* Twice the height of other items */
+    background-color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

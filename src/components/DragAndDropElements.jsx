@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
+
 import "./Drag.css";
 function App() {
   const [selectedImages, setSelectedimages] = useState([]);
+  const [firstItem, setFirstItem] = useState(selectedImages[0]);
   const [clickedCount, setClickedCount] = useState(0);
   const [isChecked, setisChecked] = useState([]);
+  const dragItem = useRef(null);
+  const dragOverItem = useRef(null);
+  
 
   const onSelectfile = (event) => {
     const selectedfiles = event.target.files;
@@ -11,6 +16,7 @@ function App() {
     const imagesarray = selectedFilesarray.map((file) => {
       return URL.createObjectURL(file);
     });
+    console.log(imagesarray);
     setSelectedimages((previousImages) => previousImages.concat(imagesarray));
     setisChecked((prevState) => [
       ...prevState,
@@ -41,7 +47,16 @@ function App() {
     // Reset the clickedCount
     setClickedCount(0);
   };
-
+  const handleSort = () => {
+    let _Selectedimages = [...selectedImages];
+    const draggedItem = _Selectedimages.splice(dragItem.current, 1)[0];
+    _Selectedimages.splice(dragOverItem.current, 0, draggedItem);
+    dragItem.current = null;
+   
+    dragOverItem.current = null;
+    
+    setSelectedimages(_Selectedimages);
+  };
   return (
     <section>
       {clickedCount > 0 ? (
@@ -70,11 +85,19 @@ function App() {
         {selectedImages &&
           selectedImages.map((image, index) => {
             return (
-              <div key={index} className="imagediv">
+              <div key={index}
+              className={`imagediv ${image === firstItem ? 'first-item' : ''}`}
+              draggable
+              onDragStart={() => {dragItem.current = index}}
+          onDragEnter={() => (dragOverItem.current = index)}
+          onDragEnd={handleSort}
+          onDragOver={(e) => e.preventDefault()}
+              
+              >
                 <input
                   className="checkboxinput"
                   type="checkbox"
-                  checked={isChecked[index]}
+                checked={isChecked[index]}
                   onChange={() => handleClick(index)}
                 />
                 <img src={image}  />
@@ -96,7 +119,9 @@ function App() {
           accept="image/png, image/jpeg, image/webp"
         />
       </label>
+   
     </section>
+   
   );
 }
 export default App;
