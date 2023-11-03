@@ -1,6 +1,7 @@
 import { useState,useRef,useEffect} from "react";
 
 import "./Drag.css";
+import { ImageIcon } from "./icons";
 function App() {
   const [selectedImages, setSelectedimages] = useState([]);
   const [firstItem, setFirstItem] = useState(selectedImages[0]);
@@ -112,7 +113,13 @@ function App() {
                   onChange={() => handleClick(index)}
                 />
                  </div>
-                <img src={image} alt={`Image ${index}`} />
+                 <img
+                  src={image}
+                  alt={`Image ${index}`}
+                  className={
+                    isChecked[index] ? "checked-image" : ""
+                  }
+                  />
                
               </div>
             );
@@ -120,10 +127,14 @@ function App() {
       
 
 <div className="upload-image">
+
       <label>
+      <ImageIcon/>
+      <br />
         Add Images
-        <br />
-        <span>upto 10 images</span>
+      
+       
+        
         <input
           className="custom-input hidden"
           type="file"
@@ -133,10 +144,12 @@ function App() {
           accept="image/png, image/jpeg, image/webp"
         />
       </label>
+      
       </div>
       </div>
       </div>
       </div>
+   
     </section>
    
   );

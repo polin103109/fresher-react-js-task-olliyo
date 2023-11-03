@@ -1,6 +1,7 @@
 
   .img-gallery {
     width: 70vw;
+    background-color: aquamarine;
     min-height: 80vh;
     border: 1px solid rgb(236, 236, 236);
     justify-content: center;
@@ -71,6 +72,8 @@ img {
 
 
 .imagediv img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 .imagediv:first-child {
@@ -94,7 +97,6 @@ img {
    
 }
 
- 
 .upload-image{
   display: flex;
   align-items: center;
@@ -106,7 +108,12 @@ img {
 
 .overlay input[type="checkbox"]:checked {
   display: block;
+  
 }
+.checked-image {
+  opacity: 0.6;
+}
+
 
 .imagediv:hover .overlay{
   display: block;
