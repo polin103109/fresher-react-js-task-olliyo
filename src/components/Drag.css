@@ -1,16 +1,16 @@
-body{
+body {
   background-color: rgb(229, 236, 238);
   justify-content: center;
+  font-family: 'Arial';
 }
-  .img-gallery {
-   
-    border: 1px solid rgb(236, 236, 236);
-    border-radius: 25px;
-    justify-content: center;
-    margin: 100px 100px;
-    box-shadow: 0px 2px 8px 0px rgba(217, 218, 218, 0.75);
-    -webkit-box-shadow: 0px 2px 8px 0px rgba(200, 198, 198, 0.75);
-    -moz-box-shadow: 0px 2px 8px 0px rgba(213, 213, 213, 0.75);
+.img-gallery {
+  border: 1px solid rgb(236, 236, 236);
+  border-radius: 25px;
+  justify-content: center;
+  margin: 100px 100px;
+  box-shadow: 0px 2px 8px 0px rgba(217, 218, 218, 0.75);
+  -webkit-box-shadow: 0px 2px 8px 0px rgba(200, 198, 198, 0.75);
+  -moz-box-shadow: 0px 2px 8px 0px rgba(213, 213, 213, 0.75);
 }
 .gallery-top {
   padding: 0px 20px;
@@ -18,79 +18,74 @@ body{
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  border-bottom: 1px solid  rgb(229, 236, 238);
+  border-bottom: 1px solid rgb(229, 236, 238);
   background-color: #fff;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-.gallery-body{
+.gallery-body {
   background-color: #fff;
- border-bottom-left-radius: 25px;
+  border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
-  label{
-    margin:0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border:1px dotted black;
-    border-radius: 10px;
-    width: 200px;
-    height: 200px;
-    cursor:pointer;
-   
-  }
-  label span{
-    font-weight: lighter;
-    font-size:small;
-    padding-top: 0.5rem;
-
-  }
-  
-  
-.checkboxinput{
-  position: absolute;
-  margin-top:10px;
-  margin-left:10px;
+label {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px dotted black;
+  border-radius: 10px;
+  width: 200px; /* Added max-width for responsiveness */
+  height: 200px;
+  cursor: pointer;
+}
+label span {
+  font-weight: lighter;
+  font-size: small;
+  padding-top: 0.5rem;
 }
 
+.checkboxinput {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 10px;
+}
 
- 
-  .images {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    padding: 25px;
-    border-radius: 5px;
+.images {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 25px;
+  border-radius: 5px;
 }
 .imagediv {
   background-color: rgb(255, 255, 255);
   border: 1px solid #e0dfdf;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   position: relative;
 }
 img {
   width: 100%;
-  
 }
-
 
 .imagediv img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius:10px ;
 }
 .imagediv:first-child {
   grid-column: span 2;
   grid-row: span 2;
+  border-radius:10px ;
 }
 .imagediv:first-child img {
   grid-column: span 2;
   grid-row: span 2;
-
+  border-radius:10px ;
 }
 .overlay input[type="checkbox"] {
   width: 20px;
@@ -100,29 +95,26 @@ img {
   top: 15px;
   cursor: pointer;
   display: none;
-
-   
 }
 
-.upload-image{
+.upload-image {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .imagediv:hover .overlay input[type="checkbox"] {
-  display: block; 
+  display: block;
+ 
 }
 
 .overlay input[type="checkbox"]:checked {
   display: block;
-  
 }
 .checked-image {
   opacity: 0.6;
 }
 
-
-.imagediv:hover .overlay{
+.imagediv:hover .overlay {
   display: block;
   top: 0;
   left: 0;
@@ -131,26 +123,31 @@ img {
   height: 100%;
   width: 100%;
   z-index: 999;
-  
-} 
-
-  .hidden {
-    display:none;
-    
-  }
-  .btn {
-    color:red;
-    border: none;
-  }
-  image{
-    position: relative;
-   
-  }
-  @media screen and (max-width: 760px) {
-    .images {
-        grid-template-columns: 1fr 1fr;
-    }
+  border-radius:10px ;
 }
- 
-  
-  
+
+.hidden {
+  display: none;
+}
+.gallery-text{
+  font-weight: bold;
+  padding-left: 5px;
+  font-size:larger;
+  color: black;
+}
+.btn {
+  color: red;
+  border: none;
+  background-color: #fff;
+  font-weight: bold;
+  font-size:larger;
+}
+image {
+  position: relative;
+}
+@media screen and (max-width: 760px) {
+  .images {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+

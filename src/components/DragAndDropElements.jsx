@@ -1,4 +1,4 @@
-import { useState,useRef,useEffect} from "react";
+import { useState, useRef, useEffect } from "react";
 
 import "./Drag.css";
 import { ImageIcon } from "./icons";
@@ -10,7 +10,6 @@ function App() {
 
   const dragItem = useRef(null);
   const dragOverItem = useRef(null);
-  
 
   const onSelectfile = (event) => {
     const selectedfiles = event.target.files;
@@ -54,12 +53,12 @@ function App() {
     const draggedItem = _Selectedimages.splice(dragItem.current, 1)[0];
     _Selectedimages.splice(dragOverItem.current, 0, draggedItem);
     dragItem.current = null;
-   
+
     dragOverItem.current = null;
-    
+
     setSelectedimages(_Selectedimages);
   };
-  const text1 = "Gallery";
+
   useEffect(() => {
     // Update the firstItem when fruitsitems changes
     setFirstItem(selectedImages[0]);
@@ -69,90 +68,80 @@ function App() {
     <section>
       <div className="img-gallery">
         <div className="gallery-top">
-      {clickedCount > 0 ? (
-        <div className="checkbox-container">
-          <input
-            type="checkbox"
-            checked={true}
-            onChange={() => handleDelete()}
-          />
-          <span className="gallery-text">
-            {clickedCount === 1
-              ? "1 File Selected"
-              : `${clickedCount} Files Selected`}
-          </span>
+          {clickedCount > 0 ? (
+            <div className="checkbox-container">
+              <input
+                type="checkbox"
+                checked={true}
+                onChange={() => handleDelete()}
+              />
+              <span className="gallery-text">
+                {clickedCount === 1
+                  ? "1 File Selected"
+                  : `${clickedCount} Files Selected`}
+              </span>
+            </div>
+          ) : (<span className="gallery-text">Gallery</span>
+          )}
+
+          {clickedCount > 0 && (
+            <button className="btn" onClick={handleDelete}>
+              Delete {clickedCount === 1 ? "File" : "Files"}
+            </button>
+          )}
         </div>
-      ) : (
-        "Gallery"
-      )}
+        <div className="gallery-body">
+          <div className="images">
+            {selectedImages &&
+              selectedImages.map((image, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="imagediv"
+                    draggable
+                    onDragStart={() => {
+                      dragItem.current = index;
+                    }}
+                    onDragEnter={() => (dragOverItem.current = index)}
+                    onDragEnd={handleSort}
+                    onDragOver={(e) => e.preventDefault()}
+                  >
+                    <div className="overlay">
+                      <input
+                        className="checkboxinput"
+                        type="checkbox"
+                        checked={isChecked[index]}
+                        onChange={() => handleClick(index)}
+                      />
+                    </div>
+                    <img
+                      src={image}
+                      alt={`Image ${index}`}
+                      className={isChecked[index] ? "checked-image" : ""}
+                    />
+                  </div>
+                );
+              })}
 
-      {clickedCount > 0 && (
-        <button className="btn" onClick={handleDelete}>
-          Delete {clickedCount === 1 ? "File" : "Files"}
-        </button>
-      )}
-      </div>
-      <div className="gallery-body">
-      <div className="images">
-        {selectedImages &&
-          selectedImages.map((image, index) => {
-            return (
-              <div key={index}
-              className= "imagediv"
-              draggable
-              onDragStart={() => {dragItem.current = index}}
-          onDragEnter={() => (dragOverItem.current = index)}
-          onDragEnd={handleSort}
-          onDragOver={(e) => e.preventDefault()}
-              
-              >
-                <div className="overlay">
+            <div className="upload-image">
+              <label>
+                <ImageIcon />
+                <br />
+                Add Images
                 <input
-                  className="checkboxinput"
-                  type="checkbox"
-                  checked={isChecked[index]}
-                  onChange={() => handleClick(index)}
+                  className="custom-input hidden"
+                  type="file"
+                  name="images"
+                  onChange={onSelectfile}
+                  multiple
+                  accept="image/png, image/jpeg, image/webp"
                 />
-                 </div>
-                 <img
-                  src={image}
-                  alt={`Image ${index}`}
-                  className={
-                    isChecked[index] ? "checked-image" : ""
-                  }
-                  />
-               
-              </div>
-            );
-          })}
-      
-
-<div className="upload-image">
-
-      <label>
-      <ImageIcon/>
-      <br />
-        Add Images
-      
-       
-        
-        <input
-          className="custom-input hidden"
-          type="file"
-          name="images"
-          onChange={onSelectfile}
-          multiple
-          accept="image/png, image/jpeg, image/webp"
-        />
-      </label>
-      
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
-      </div>
-      </div>
-      </div>
-   
     </section>
-   
   );
 }
 export default App;
