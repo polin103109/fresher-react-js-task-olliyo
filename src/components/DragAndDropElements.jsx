@@ -59,6 +59,7 @@ function App() {
     
     setSelectedimages(_Selectedimages);
   };
+  const text1 = "Gallery";
   useEffect(() => {
     // Update the firstItem when fruitsitems changes
     setFirstItem(selectedImages[0]);
