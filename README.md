@@ -48,14 +48,12 @@ cd gallery-project
 
 1. Start the development server:
    - yarn run dev
-2. Open your web browser and access the project at `http://localhost:5173/`.
+2. Open your web browser and access the project at `http://localhost:5173/`
 3. Use the gallery to reorder, delete, and set feature images.
 
 ## Live Demo
 
-Hosted the gallery on [GitHub Pages](https://frrr-sigma.vercel.app/) for a live preview.
-
-## Live Project Demo:[Project]()
+Hosted the gallery on [https://frrr-sigma.vercel.app/](https://frrr-sigma.vercel.app/) for a live preview.
 
 # Author
 
