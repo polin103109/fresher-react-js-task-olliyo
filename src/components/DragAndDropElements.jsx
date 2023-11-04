@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
-
 import "./Drag.css";
 import { ImageIcon } from "./icons";
+
 function Drag() {
   const [selectedImages, setSelectedimages] = useState([]);
   const [overLay, setOverLay] = useState(true);

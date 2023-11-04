@@ -142,6 +142,7 @@ label span {
   background-color: #fff;
   font-weight: bold;
   font-size: 20px;
+  height: 100%;
 }
 .btn:hover {
   text-decoration: underline;
@@ -150,10 +151,16 @@ label span {
   position: relative;
 }
 
-@media only screen and (max-width: 600px) and (min-width: 300px) {
+@media (max-width: 600px) {
   .images {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  .btn {
+    font-size: 17px;
+  }
+  .gallery-text {
+    font-size: 17px;
   }
 }
 @media only screen and (min-width: 600px) and (max-width: 800px) {
