@@ -37,7 +37,7 @@ label {
   align-items: center;
   border: 1px dotted black;
   border-radius: 10px;
-  width: 200px; /* Added max-width for responsiveness */
+  width: 200px; 
   height: 200px;
   cursor: pointer;
 }
@@ -151,21 +151,26 @@ label span {
   position: relative;
 }
 
+/* Media Queries for responsiveness */
 @media (max-width: 600px) {
+  .img-gallery {
+    margin: 10px;
+  }
+
   .images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .btn {
-    font-size: 17px;
-  }
-  .gallery-text {
-    font-size: 17px;
+    grid-template-columns: 1fr;
+    padding: 10px;
   }
 }
-@media only screen and (min-width: 600px) and (max-width: 800px) {
+
+@media (min-width: 601px) and (max-width: 800px) {
   .images {
-    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+  .images {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
