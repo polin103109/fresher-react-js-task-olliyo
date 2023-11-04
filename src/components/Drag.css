@@ -1,13 +1,14 @@
 body {
   background-color: rgb(229, 236, 238);
   justify-content: center;
-  font-family: 'Arial';
+  font-family: "Arial";
 }
 .img-gallery {
+  margin: 80px;
   border: 1px solid rgb(236, 236, 236);
   border-radius: 25px;
   justify-content: center;
-  margin: 100px 100px;
+
   box-shadow: 0px 2px 8px 0px rgba(217, 218, 218, 0.75);
   -webkit-box-shadow: 0px 2px 8px 0px rgba(200, 198, 198, 0.75);
   -moz-box-shadow: 0px 2px 8px 0px rgba(213, 213, 213, 0.75);
@@ -60,39 +61,37 @@ label span {
   border-radius: 5px;
 }
 .imagediv {
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
   border: 1px solid #e0dfdf;
   text-align: center;
   border-radius: 10px;
   cursor: pointer;
   position: relative;
 }
-img {
-  width: 100%;
-}
 
 .imagediv img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius:10px ;
+  border-radius: 10px;
+  background-color: #fff;
 }
 .imagediv:first-child {
   grid-column: span 2;
   grid-row: span 2;
-  border-radius:10px ;
+  border-radius: 10px;
 }
 .imagediv:first-child img {
   grid-column: span 2;
   grid-row: span 2;
-  border-radius:10px ;
+  border-radius: 10px;
 }
 .overlay input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   position: absolute;
-  left: 15px;
-  top: 15px;
+  left: 10px;
+  top: 10px;
   cursor: pointer;
   display: none;
 }
@@ -104,7 +103,6 @@ img {
 }
 .imagediv:hover .overlay input[type="checkbox"] {
   display: block;
- 
 }
 
 .overlay input[type="checkbox"]:checked {
@@ -112,6 +110,9 @@ img {
 }
 .checked-image {
   opacity: 0.6;
+}
+.dragging-img img {
+  border: 1px solid blue;
 }
 
 .imagediv:hover .overlay {
@@ -123,16 +124,16 @@ img {
   height: 100%;
   width: 100%;
   z-index: 999;
-  border-radius:10px ;
+  border-radius: 10px;
 }
 
 .hidden {
   display: none;
 }
-.gallery-text{
+.gallery-text {
   font-weight: bold;
   padding-left: 5px;
-  font-size:larger;
+  font-size: larger;
   color: black;
 }
 .btn {
@@ -140,14 +141,24 @@ img {
   border: none;
   background-color: #fff;
   font-weight: bold;
-  font-size:larger;
+  font-size: 20px;
 }
-image {
+.btn:hover {
+  text-decoration: underline;
+}
+.image {
   position: relative;
 }
-@media screen and (max-width: 760px) {
+
+@media only screen and (max-width: 600px) and (min-width: 300px) {
   .images {
-    grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
-
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .images {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

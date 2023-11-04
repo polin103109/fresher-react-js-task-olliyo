@@ -1,13 +1,12 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 import "./Drag.css";
 import { ImageIcon } from "./icons";
-function App() {
+function Drag() {
   const [selectedImages, setSelectedimages] = useState([]);
-  const [firstItem, setFirstItem] = useState(selectedImages[0]);
+  const [overLay, setOverLay] = useState(true);
   const [clickedCount, setClickedCount] = useState(0);
   const [isChecked, setisChecked] = useState([]);
-
   const dragItem = useRef(null);
   const dragOverItem = useRef(null);
 
@@ -17,53 +16,47 @@ function App() {
     const imagesarray = selectedFilesarray.map((file) => {
       return URL.createObjectURL(file);
     });
-    console.log(imagesarray);
     setSelectedimages((previousImages) => previousImages.concat(imagesarray));
     setisChecked((prevState) => [
       ...prevState,
       ...new Array(imagesarray.length).fill(false),
     ]);
   };
+
   const handleClick = (index) => {
     const updatedIsChecked = [...isChecked];
     updatedIsChecked[index] = !updatedIsChecked[index];
     setisChecked(updatedIsChecked);
-
-    // Calculateing the clickedCount based on checked checkboxes
     const newClickedCount = updatedIsChecked.filter(
       (isChecked) => isChecked
     ).length;
     setClickedCount(newClickedCount);
   };
+
   const handleDelete = () => {
     const updatedSelectedImages = selectedImages.filter(
       (_, index) => !isChecked[index]
     );
     const updatedIsChecked = isChecked.filter((_, index) => !isChecked[index]);
-
-    // Updating the selectedImages and isChecked states
     setSelectedimages(updatedSelectedImages);
     setisChecked(updatedIsChecked);
-
-    // Reset the clickedCount
     setClickedCount(0);
   };
+
   const handleSort = () => {
     let _Selectedimages = [...selectedImages];
     const draggedItem = _Selectedimages.splice(dragItem.current, 1)[0];
     _Selectedimages.splice(dragOverItem.current, 0, draggedItem);
     dragItem.current = null;
-
     dragOverItem.current = null;
-
+    setOverLay(true);
     setSelectedimages(_Selectedimages);
   };
 
-  useEffect(() => {
-    // Update the firstItem when fruitsitems changes
-    setFirstItem(selectedImages[0]);
-    console.log(selectedImages[0]);
-  }, [selectedImages]);
+  const isImageDraggable = (index) => {
+    return dragItem.current === index;
+  };
+
   return (
     <section>
       <div className="img-gallery">
@@ -81,7 +74,8 @@ function App() {
                   : `${clickedCount} Files Selected`}
               </span>
             </div>
-          ) : (<span className="gallery-text">Gallery</span>
+          ) : (
+            <span className="gallery-text">Gallery</span>
           )}
 
           {clickedCount > 0 && (
@@ -94,30 +88,53 @@ function App() {
           <div className="images">
             {selectedImages &&
               selectedImages.map((image, index) => {
+                const isDraggable = isImageDraggable(index);
+
                 return (
                   <div
                     key={index}
-                    className="imagediv"
+                    className={`imagediv ${
+                      isDraggable ? "draggable-image" : ""
+                    }`}
                     draggable
                     onDragStart={() => {
                       dragItem.current = index;
+                      setOverLay(false);
+                     
                     }}
-                    onDragEnter={() => (dragOverItem.current = index)}
+                    onDragEnter={() => {
+                      dragOverItem.current = index;
+                      
+                    }}
                     onDragEnd={handleSort}
-                    onDragOver={(e) => e.preventDefault()}
+                    onDragOver={(e) => {
+                      e.preventDefault();
+                      
+                    }}
+                    onDrop={(e) => {
+                      e.preventDefault();
+                      
+                    }}
                   >
-                    <div className="overlay">
-                      <input
-                        className="checkboxinput"
-                        type="checkbox"
-                        checked={isChecked[index]}
-                        onChange={() => handleClick(index)}
-                      />
+                    <div className={overLay ? "overlay" : ""}>
+                      {overLay ? (
+                        <input
+                          className="checkboxinput"
+                          type="checkbox"
+                          checked={isChecked[index]}
+                          onChange={() => handleClick(index)}
+                        />
+                      ) : (
+                        ""
+                      )}
                     </div>
+
                     <img
                       src={image}
                       alt={`Image ${index}`}
-                      className={isChecked[index] ? "checked-image" : ""}
+                      className={`${
+                        isChecked[index] ? "checked-image" : "dragging-image"
+                      } `}
                     />
                   </div>
                 );
@@ -144,4 +161,4 @@ function App() {
     </section>
   );
 }
-export default App;
+export default Drag;
