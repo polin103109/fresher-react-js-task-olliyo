@@ -51,7 +51,7 @@ cd gallery-project
 
 ## Live Demo
 
-Hosted the gallery on [https://frrr-sigma.vercel.app/](https://frrr-sigma.vercel.app/) for a live preview.
+Hosted the gallery on [https://demo-project-psi-henna.vercel.app/](https://demo-project-psi-henna.vercel.app/) for a live preview.
 
 -Overview of live demo
 ![Overview](src/assets/images/galleryproject.PNG)
