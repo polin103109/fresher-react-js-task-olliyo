@@ -4,7 +4,7 @@ React JS Image Gallery
 
 ## PROJECT DESCRIPTION
 
-A responsive image gallery built with React JS. This gallery features reordering, deleting multiple images, and setting a feature image. It provides a seamless user experience and an attractive layout.
+A responsive image gallery built with Vite + React JS. This gallery features reordering, deleting multiple images, and setting a feature image. It provides a seamless user experience and an attractive layout.
 
 ## Features
 
@@ -22,8 +22,6 @@ A responsive image gallery built with React JS. This gallery features reordering
 - Code Formatting: [Prettier](https://prettier.io/)
 
 ## ⌨️ Development
-
-## Installation
 
 1. Clone the repository using the following command:
 
