@@ -55,7 +55,8 @@ cd gallery-project
 
 Hosted the gallery on [https://frrr-sigma.vercel.app/](https://frrr-sigma.vercel.app/) for a live preview.
 
--![Overview](src/assets/images/galleryproject.PNG)
+-Overview of live demo
+![Overview](src/assets/images/galleryproject.PNG)
 
 # Author
 
