@@ -1,13 +1,11 @@
-import Drag from "./components/DragAndDropElements"
+import Drag from "./components/DragAndDropElements";
 
 function App() {
- 
- return (
+  return (
     <>
-    <Drag/>
-    
+      <Drag />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

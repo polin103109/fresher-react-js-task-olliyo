@@ -166,6 +166,12 @@ label span {
     padding: 10px;
   }
 }
+.add-image{
+  font-weight: bold;
+  font-size: 20px;
+  font-family: Arial;
+  color: black;
+}
 
 @media (min-width: 601px) and (max-width: 800px) {
   .images {

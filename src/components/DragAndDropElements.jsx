@@ -144,7 +144,8 @@ function Drag() {
               <label>
                 <ImageIcon />
                 <br />
-                Add Images
+                <span className="add-image">  Add Images</span>
+              
                 <input
                   className="custom-input hidden"
                   type="file"
