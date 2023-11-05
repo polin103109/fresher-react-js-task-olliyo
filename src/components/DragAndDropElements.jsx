@@ -100,20 +100,16 @@ function Drag() {
                     onDragStart={() => {
                       dragItem.current = index;
                       setOverLay(false);
-                     
                     }}
                     onDragEnter={() => {
                       dragOverItem.current = index;
-                      
                     }}
                     onDragEnd={handleSort}
                     onDragOver={(e) => {
                       e.preventDefault();
-                      
                     }}
                     onDrop={(e) => {
                       e.preventDefault();
-                      
                     }}
                   >
                     <div className={overLay ? "overlay" : ""}>
@@ -132,9 +128,7 @@ function Drag() {
                     <img
                       src={image}
                       alt={`Image ${index}`}
-                      className={`${
-                        isChecked[index] ? "checked-image" : "dragging-image"
-                      } `}
+                      className={`${isChecked[index] ? "checked-image" : " "} `}
                     />
                   </div>
                 );
@@ -144,8 +138,8 @@ function Drag() {
               <label>
                 <ImageIcon />
                 <br />
-                <span className="add-image">  Add Images</span>
-              
+                <span className="add-image"> Add Images</span>
+
                 <input
                   className="custom-input hidden"
                   type="file"
