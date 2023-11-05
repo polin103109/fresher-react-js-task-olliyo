@@ -155,7 +155,6 @@ label span {
   position: relative;
 }
 
-/* Media Queries for responsiveness */
 @media (max-width: 600px) {
   .img-gallery {
     margin: 10px;

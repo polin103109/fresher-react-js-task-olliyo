@@ -55,6 +55,8 @@ cd gallery-project
 
 Hosted the gallery on [https://frrr-sigma.vercel.app/](https://frrr-sigma.vercel.app/) for a live preview.
 
+-![Overview](src/assets/images/galleryproject.PNG)
+
 # Author
 
 > Front-End Developer | Back-End Developer | React JS Developer | Node JS Developer | JavaScript Programmer
